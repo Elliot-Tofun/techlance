@@ -21,9 +21,8 @@ Techlance Hub is a professional business website showcasing the services, expert
    ```
 2. Install dependencies:
    ```sh
-   npm install
-   # or
-   yarn install
+   npm install --legacy-peer-deps
+ 
    ```
 3. Run the development server:
    ```sh
