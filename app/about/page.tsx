@@ -21,6 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Ripple } from "./background";
 
 const imageUrl =
   "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
@@ -30,6 +31,7 @@ export default function AboutPage() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className=" w-full relative overflow-hidden from-primary/10 via-primary/5 to-background">
+        <Ripple />
         <div className="container py-32 md:py-24 lg:py-32 px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center space-y-4 text-center max-w-[900px] mx-auto">
             <div className="space-y-2">

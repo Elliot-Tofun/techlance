@@ -18,7 +18,7 @@ export default function ServicesDetails() {
   // Service data for each service including icons for each point
   const services = [
     {
-      id: "development-1",
+      id: "development",
       category: "web-dev", // For website & app development
       title: "Website & App Development",
       subtitle: "That Drive Business Growth",
@@ -46,7 +46,7 @@ export default function ServicesDetails() {
         "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3",
     },
     {
-      id: "dispatch-1",
+      id: "dispatch",
       category: "dispatch-logistics", // For dispatch & logistics
       title: "Dispatch & Logistics Management",
       subtitle: "Optimized, Reliable, and Scalable Logistics Solutions",
@@ -74,7 +74,7 @@ export default function ServicesDetails() {
         "https://images.pexels.com/photos/4391478/pexels-photo-4391478.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
-      id: "support-1",
+      id: "support",
       category: "customer-support", // For customer support
       title: "24/7 Customer Support & Call Centre",
       subtitle: "Reliable Support, Seamless Experience",
@@ -102,7 +102,7 @@ export default function ServicesDetails() {
         "https://images.pexels.com/photos/7689641/pexels-photo-7689641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
-      id: "marketing-1",
+      id: "marketing",
       category: "digital-marketing", // For digital marketing
       title: "Digital Marketing & Lead Generation",
       subtitle: "Maximize Your Reach, Convert More Customers",
@@ -130,7 +130,7 @@ export default function ServicesDetails() {
         "https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
-      id: "database-1",
+      id: "dbmanagement",
       category: "database-management", // For database management
       title: "Database Management",
       subtitle: "Reliable, Secure, and High-Performance Data Solutions",
@@ -158,7 +158,7 @@ export default function ServicesDetails() {
         "https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
-      id: "infrastructure-1",
+      id: "infrastructure",
       category: "it-infrastructure", // For IT infrastructure
       title: "IT Infrastructure Management",
       subtitle: "Secure, Scalable, and Seamless IT Solutions",
@@ -221,7 +221,7 @@ export default function ServicesDetails() {
               position: "relative",
             }}
           >
-            <div className="min-h-[50vh] flex items-center justify-center">
+            <div id={service.id} className=" min-h-[50vh] flex items-center justify-center">
               <div className="w-full max-w-screen-lg mx-auto py-12 px-6">
                 <h2 className="text-3xl leading-10 sm:text-4xl md:text-[40px] md:leading-[3.25rem] font-bold tracking-tight">
                   {service.title} <br />

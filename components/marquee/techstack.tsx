@@ -16,7 +16,7 @@ import Marquee from "@/components/ui/marquee";
 
 const Techstack = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6">
+    <div className="flex items-center justify-center px-6 min-h-max bg-muted py-10">
       <div className="overflow-hidden text-center max-w-4xl">
         <p className="text-4xl md:text-5xl lg:text-5xl xl:text-5xl font-bold tracking-wide">
           We Build Scalable Solutions Using the Latest Technologies

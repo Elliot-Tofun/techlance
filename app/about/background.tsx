@@ -26,7 +26,7 @@ export const Ripple = React.memo(function Ripple({
         return (
           <div
             key={i}
-            className="absolute animate-ripple rounded-full border bg-foreground/25 shadow-xl"
+            className="absolute lg:mt-40 sm:mt-16 animate-ripple rounded-full border bg-foreground/25 shadow-xl"
             style={
               {
                 width: `calc(var(--main-circle-size) + ${i * 70}px)`,
