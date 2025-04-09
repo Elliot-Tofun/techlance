@@ -5,7 +5,7 @@ import React from "react";
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Scheduler } from "@/components/Scheduler";
 import { useTheme } from "next-themes";
 
@@ -88,18 +88,18 @@ export function ImageCarousel({
     }, 500); // Match this with the transition duration in CSS
   }, [images.length, isTransitioning]);
 
-  const prevSlide = useCallback(() => {
-    if (isTransitioning) return;
+  // const prevSlide = useCallback(() => {
+  //   if (isTransitioning) return;
 
-    setIsTransitioning(true);
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
+  //   setIsTransitioning(true);
+  //   setCurrentIndex(
+  //     (prevIndex) => (prevIndex - 1 + images.length) % images.length
+  //   );
 
-    setTimeout(() => {
-      setIsTransitioning(false);
-    }, 500); // Match this with the transition duration in CSS
-  }, [images.length, isTransitioning]);
+  //   setTimeout(() => {
+  //     setIsTransitioning(false);
+  //   }, 500); // Match this with the transition duration in CSS
+  // }, [images.length, isTransitioning]);
 
   const goToSlide = (index: number) => {
     if (isTransitioning) return;

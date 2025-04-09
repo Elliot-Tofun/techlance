@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Particles } from "@/app/services/particle-background";
-import Link from "next/link";
 import { Scheduler } from "../Scheduler";
 
 function Hero() {
@@ -57,7 +56,7 @@ function Hero() {
           <div className="flex flex-col justify-center space-y-4 text-center max-w-3xl mx-auto">
             <div className="space-y-2 justify-center items-center mb-12">
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold tracking-tighter leading-tight mb-8">
-                Build Your Brand. We'll Handle the Rest !
+                Build Your Brand. We&apos;ll Handle the Rest !
                 <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                   &nbsp;
                   {titles.map((title, index) => (
@@ -69,13 +68,13 @@ function Hero() {
                       animate={
                         titleNumber === index
                           ? {
-                              y: 0,
-                              opacity: 1,
-                            }
+                            y: 0,
+                            opacity: 1,
+                          }
                           : {
-                              y: titleNumber > index ? -150 : 150,
-                              opacity: 0,
-                            }
+                            y: titleNumber > index ? -150 : 150,
+                            opacity: 0,
+                          }
                       }
                     >
                       {title}

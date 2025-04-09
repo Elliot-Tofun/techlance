@@ -1,7 +1,6 @@
 /** @format */
 
 "use client";
-import Image from "next/image";
 import { useState } from "react";
 import ThemeToggle from "./theme-toggle";
 import Link from "next/link";
@@ -24,7 +23,6 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import { useTheme } from "next-themes";
 
 const services = [
   {
@@ -74,7 +72,6 @@ const services = [
 export const MainNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const { theme } = useTheme();
 
   return (
     <header

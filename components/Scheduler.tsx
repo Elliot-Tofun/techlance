@@ -126,15 +126,16 @@ export function Scheduler({ open, onOpenChange }: MeetingDialogProps) {
     setIsSubmitting(false);
   };
 
+  // Fix the any type by specifying the correct type for fields
   const handleNext = async () => {
     const fields =
       step === 1
         ? ["name", "company"]
         : step === 2
-        ? ["phone", "email"]
-        : ["service", "description"];
+          ? ["phone", "email"]
+          : ["service", "description"];
 
-    const isValid = await form.trigger(fields as any);
+    const isValid = await form.trigger(fields as Array<keyof FormValues>);
 
     if (isValid) {
       const currentValues = form.getValues();
@@ -176,19 +177,16 @@ export function Scheduler({ open, onOpenChange }: MeetingDialogProps) {
             </DialogHeader>
             <div className="flex justify-between mb-4">
               <div
-                className={`h-2 w-1/3 rounded-full mr-1 ${
-                  step >= 1 ? "bg-primary" : "bg-muted"
-                }`}
+                className={`h-2 w-1/3 rounded-full mr-1 ${step >= 1 ? "bg-primary" : "bg-muted"
+                  }`}
               ></div>
               <div
-                className={`h-2 w-1/3 rounded-full mx-1 ${
-                  step >= 2 ? "bg-primary" : "bg-muted"
-                }`}
+                className={`h-2 w-1/3 rounded-full mx-1 ${step >= 2 ? "bg-primary" : "bg-muted"
+                  }`}
               ></div>
               <div
-                className={`h-2 w-1/3 rounded-full ml-1 ${
-                  step >= 3 ? "bg-primary" : "bg-muted"
-                }`}
+                className={`h-2 w-1/3 rounded-full ml-1 ${step >= 3 ? "bg-primary" : "bg-muted"
+                  }`}
               ></div>
             </div>
             <Form {...form}>
@@ -218,7 +216,7 @@ export function Scheduler({ open, onOpenChange }: MeetingDialogProps) {
                             <Input placeholder="Acme Inc." {...field} />
                           </FormControl>
                           <FormDescription>
-                            You can leave this blank if you're an individual.
+                            You can leave this blank if you&apos;re an individual.
                           </FormDescription>
                           <FormMessage />
                         </FormItem>
@@ -283,9 +281,9 @@ export function Scheduler({ open, onOpenChange }: MeetingDialogProps) {
                                 >
                                   {field.value
                                     ? services.find(
-                                        (service) =>
-                                          service.value === field.value
-                                      )?.label
+                                      (service) =>
+                                        service.value === field.value
+                                    )?.label
                                     : "Select a service"}
                                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                 </Button>
@@ -369,7 +367,7 @@ export function Scheduler({ open, onOpenChange }: MeetingDialogProps) {
             <DialogHeader>
               <DialogTitle>Thank You!</DialogTitle>
               <DialogDescription>
-                Your meeting request has been submitted successfully. We'll
+                Your meeting request has been submitted successfully. We&apos;ll
                 contact you shortly to confirm your appointment.
               </DialogDescription>
             </DialogHeader>

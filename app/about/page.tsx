@@ -43,7 +43,7 @@ export default function AboutPage() {
               </p>
             </div>
             <p className="max-w-[800px] text-muted-foreground text-base md:text-lg lg:text-lg xl:text-lg">
-              We don't just provide services—we create{" "}
+              We don&apos;t just provide services—we create{" "}
               <span className="font-bold">scalable, high-impact solutions</span>{" "}
               that drive real business growth. From building high-converting
               websites and securing IT infrastructures to generating leads that
@@ -51,7 +51,7 @@ export default function AboutPage() {
               <span className="font-bold">
                 powers your entire digital presence
               </span>
-              . Partner with us, and let's take your business to the next level.
+              . Partner with us, and let&apos;s take your business to the next level.
             </p>
             <div className="space-x-4 pt-4">
               <Button asChild size="lg">
@@ -157,7 +157,7 @@ export default function AboutPage() {
               <CardContent className="text-center">
                 <p className="text-muted-foreground">
                   Technology and markets change fast—we make sure you stay
-                  ahead. Whether it's leveraging AI, automation, or growth
+                  ahead. Whether it&apos;s leveraging AI, automation, or growth
                   hacking strategies,{" "}
                   <span className="font-bold">
                     we ensure your business thrives in a digital-first world.
@@ -176,7 +176,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground">
-                  Your success is our priority. We don't just work for you—we
+                  Your success is our priority. We don&apos;t just work for you—we
                   work with you, ensuring that every solution is{" "}
                   <span className="font-bold">
                     tailored to your unique business needs.
@@ -220,7 +220,7 @@ export default function AboutPage() {
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg">
                 We provide{" "}
                 <span className="font-bold">end-to-end solutions</span> covering
-                every aspect of your business's digital growth, operational
+                every aspect of your business&apos;s digital growth, operational
                 efficiency, and customer engagement.
               </p>
             </div>
@@ -242,7 +242,7 @@ export default function AboutPage() {
                   <p className="text-muted-foreground">
                     Your online presence is your{" "}
                     <span className="font-bold">digital storefront</span>—we
-                    ensure it's built to{" "}
+                    ensure it&apos;s built to{" "}
                     <span className="font-bold">
                       convert, scale, and impress
                     </span>
@@ -618,7 +618,7 @@ export default function AboutPage() {
                 Join the Businesses That Trust Us
               </h2>
               <p className="mx-auto max-w-[700px] md:text-xl">
-                We've helped{" "}
+                We&apos;ve helped{" "}
                 <span className="font-bold">hundreds of companies</span> across
                 industries{" "}
                 <span className="font-bold">
@@ -631,7 +631,7 @@ export default function AboutPage() {
             </div>
             <div className="mt-6">
               <h3 className="text-2xl font-bold mb-4 flex items-center justify-center">
-                <PhoneCall className="mr-2 h-6 w-6" /> Let's build your success
+                <PhoneCall className="mr-2 h-6 w-6" /> Let&apos;s build your success
                 story—Contact us today!
               </h3>
               <Button size="lg" variant="default" asChild>

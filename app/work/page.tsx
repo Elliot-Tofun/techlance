@@ -169,7 +169,7 @@ export default function WorkPage() {
             Ready to transform your business?
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Let's build your success story—contact us today!
+            Let&apos;s build your success story—contact us today!
           </p>
           <Button size="lg" className="px-8">
             Get in touch <ArrowRight className="ml-2 h-4 w-4" />
@@ -516,7 +516,7 @@ function CaseStudies() {
           Case Studies: Real Success, Proven Impact
         </h2>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Dive deeper into how we've helped our clients achieve remarkable
+          Dive deeper into how we&apos;ve helped our clients achieve remarkable
           results
         </p>
       </div>

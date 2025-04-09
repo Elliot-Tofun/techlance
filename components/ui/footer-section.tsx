@@ -10,13 +10,11 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import {
+  Send,
   Facebook,
+  Twitter,
   Instagram,
   Linkedin,
-  Moon,
-  Send,
-  Sun,
-  Twitter,
 } from "lucide-react";
 
 function Footer() {
