@@ -42,6 +42,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Metadata } from 'next'
 
 const projectCategories = [
   { label: "All Projects", value: "all" },

@@ -23,9 +23,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Ripple } from "./background";
 
-const imageUrl =
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -98,13 +95,10 @@ export default function AboutPage() {
             </div>
             <div className="flex justify-center">
               <div className="relative h-[400px] w-full overflow-hidden rounded-xl">
-                <Image
-                  src="/about1.jpg"
+                <img
+                  src="https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                   alt="Team of professionals working together"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
@@ -272,12 +266,12 @@ export default function AboutPage() {
               </div>
               <div className="order-1 md:order-2 flex justify-center">
                 <div className="relative h-[250px] w-full overflow-hidden rounded-xl">
-                  <Image
-                    src={imageUrl}
+                  <img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Website and app development"
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
+
                 </div>
               </div>
             </div>
@@ -375,11 +369,10 @@ export default function AboutPage() {
               </div>
               <div className="order-1 md:order-2 flex justify-center">
                 <div className="relative h-[250px] w-full overflow-hidden rounded-xl">
-                  <Image
+                  <img
                     src="https://images.pexels.com/photos/4391486/pexels-photo-4391486.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                     alt="Dispatch and logistics management"
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
@@ -389,11 +382,10 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-6 items-center">
               <div className="flex justify-center">
                 <div className="relative h-[250px] w-full overflow-hidden rounded-xl">
-                  <Image
+                  <img
                     src="https://images.pexels.com/photos/5716001/pexels-photo-5716001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                     alt="Digital marketing and lead generation"
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
@@ -484,6 +476,11 @@ export default function AboutPage() {
                     fill
                     className="object-cover"
                   />
+                  <img
+                    src="https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    alt="IT infrastructure management"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -492,11 +489,11 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-6 items-center">
               <div className="flex justify-center">
                 <div className="relative h-[250px] w-full overflow-hidden rounded-xl">
-                  <Image
+
+                  <img
                     src="https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                     alt="Database management"
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
