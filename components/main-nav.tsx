@@ -2,7 +2,7 @@
 
 "use client";
 import { useState } from "react";
-import ThemeToggle from "./theme-toggle";
+// import ThemeToggle from "./theme-toggle";
 import Link from "next/link";
 import {
   Menu,
@@ -148,11 +148,11 @@ export const MainNav = () => {
           <Button className="text-base" onClick={() => setDialogOpen(true)}>
             Schedule Meeting
           </Button>
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </div>
 
         <div className="md:hidden flex items-center space-x-4">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>

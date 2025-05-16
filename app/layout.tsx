@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
+// import { ThemeProvider } from "next-themes";
 import { MainNav } from "@/components/main-nav";
 import { Footer } from "@/components/ui/footer-section";
 import "./globals.css";
@@ -72,12 +72,12 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="MyWebSite" />
       </head>
       <body className={`${inter.variable} antialiased w-full`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <MainNav />
-          <main className="">{children}</main>
-          <Footer />
-          <JsonLd />
-        </ThemeProvider>
+        {/* <ThemeProvider attribute="class" defaultTheme="light" enableSystem> */}
+        <MainNav />
+        <main className="">{children}</main>
+        <Footer />
+        <JsonLd />
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );

@@ -7,54 +7,46 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Scheduler } from "@/components/Scheduler";
-import { useTheme } from "next-themes";
+// import { useTheme } from "next-themes";
 
 export function Hero() {
   const [dialogOpen, setDialogOpen] = useState(false);
-  const { theme } = useTheme();
 
-  const lightModeImages = [
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='800' viewBox='0 0 1600 800'%3E%3Crect width='1600' height='800' fill='%23ffffff'/%3E%3Cpath d='M0 0h1600v800H0z' fill='%23f8fafc'/%3E%3Ccircle cx='800' cy='400' r='300' stroke='%232563eb' stroke-width='2' fill='none' stroke-opacity='0.15'/%3E%3C/svg%3E",
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='800' viewBox='0 0 1600 800'%3E%3Crect width='1600' height='800' fill='%23ffffff'/%3E%3Cpath d='M0 0h1600v800H0z' fill='%23f8fafc'/%3E%3Cpath d='M0 400c160-160 440-160 600 0s440 160 600 0' stroke='%232563eb' stroke-width='2' fill='none' stroke-opacity='0.2'/%3E%3C/svg%3E",
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='800' viewBox='0 0 1600 800'%3E%3Crect width='1600' height='800' fill='%23ffffff'/%3E%3Cpath d='M0 0h1600v800H0z' fill='%23f8fafc'/%3E%3Ccircle cx='800' cy='400' r='300' stroke='%232563eb' stroke-width='2' fill='none' stroke-opacity='0.15'/%3E%3C/svg%3E",
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='800' viewBox='0 0 1600 800'%3E%3Crect width='1600' height='800' fill='%23ffffff'/%3E%3Cpath d='M0 0h1600v800H0z' fill='%23f8fafc'/%3E%3Cpath d='M800 150L500 600h600L800 150z' stroke='%232563eb' stroke-width='2' fill='none' stroke-opacity='0.2'/%3E%3C/svg%3E",
+  const images = [
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+    "https://images.pexels.com/photos/4391486/pexels-photo-4391486.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/8867482/pexels-photo-8867482.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   ];
-
-  const darkModeImages = [
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='800' viewBox='0 0 1600 800'%3E%3Crect width='1600' height='800' fill='%230a0a0a'/%3E%3Cpath d='M0 0h1600v800H0z' fill='%230a0a0a'/%3E%3Ccircle cx='800' cy='400' r='300' stroke='%232563eb' stroke-width='2' fill='none' stroke-opacity='0.15'/%3E%3C/svg%3E",
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='800' viewBox='0 0 1600 800'%3E%3Crect width='1600' height='800' fill='%230a0a0a'/%3E%3Cpath d='M0 0h1600v800H0z' fill='%230a0a0a'/%3E%3Cpath d='M0 400c160-160 440-160 600 0s440 160 600 0' stroke='%232563eb' stroke-width='2' fill='none' stroke-opacity='0.2'/%3E%3C/svg%3E",
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='800' viewBox='0 0 1600 800'%3E%3Crect width='1600' height='800' fill='%230a0a0a'/%3E%3Cpath d='M0 0h1600v800H0z' fill='%230a0a0a'/%3E%3Ccircle cx='800' cy='400' r='300' stroke='%232563eb' stroke-width='2' fill='none' stroke-opacity='0.15'/%3E%3C/svg%3E",
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='800' viewBox='0 0 1600 800'%3E%3Crect width='1600' height='800' fill='%230a0a0a'/%3E%3Cpath d='M0 0h1600v800H0z' fill='%230a0a0a'/%3E%3Cpath d='M800 150L500 600h600L800 150z' stroke='%232563eb' stroke-width='2' fill='none' stroke-opacity='0.2'/%3E%3C/svg%3E",
-  ];
-
-  const carouselImages = theme === "dark" ? darkModeImages : lightModeImages;
 
   return (
-    <section className="w-full h-screen relative overflow-hidden">
-      <div className="absolute inset-0">
-        <ImageCarousel images={carouselImages} className="h-full w-full" />
-      </div>
-      <div className="relative container h-full flex items-center translate-y-[-10%] mx-auto px-4 md:px-6 z-20">
-        <div className="flex flex-col justify-center space-y-4 text-center max-w-3xl mx-auto">
-          <div className="space-y-2 justify-center items-center mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold tracking-tighter leading-tight mb-8  ">
-              One Agency. For Every Digital Solution Your Business Needs.
-            </h1>
-            <p className="text-muted-foreground text-base md:text-lg lg:text-lg xl:text-lg ">
-              From custom website & app development to 24/7 customer support, we
-              offer comprehensive IT and digital marketing solutions tailored to
-              your business needs. Enhance efficiency, drive revenue, and scale
-              with confidence.
-            </p>
-          </div>
-          <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
-            <Button size="lg" onClick={() => setDialogOpen(true)}>
-              Get Started
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="lg">
-              <Link href="#services">Explore Services</Link>
-            </Button>
+    <section className="w-full min-h-screen py-8 px-4 mt-8 flex items-center justify-center">
+      <div className="relative w-[95%] h-[90vh] rounded-3xl overflow-hidden shadow-2xl">
+        <div className="absolute inset-0">
+          <ImageCarousel images={images} className="h-full w-full" />
+        </div>
+        <div className="relative container h-full flex items-center translate-y-[-10%] mx-auto px-4 md:px-6 z-20">
+          <div className="flex flex-col justify-center space-y-4 text-center max-w-3xl mx-auto bg-black/40 backdrop-blur-sm p-8 rounded-2xl">
+            <div className="space-y-2 justify-center items-center mb-12">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold tracking-tighter leading-tight mb-8 text-white">
+                One Agency. For Every Digital Solution Your Business Needs.
+              </h1>
+              <p className="text-white/90 text-base md:text-lg lg:text-lg xl:text-lg">
+                From custom website & app development to 24/7 customer support, we
+                offer comprehensive IT and digital marketing solutions tailored to
+                your business needs. Enhance efficiency, drive revenue, and scale
+                with confidence.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
+              <Button size="lg" onClick={() => setDialogOpen(true)} className="bg-primary hover:bg-primary/90 text-white">
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button variant="outline" size="lg" className="bg-white/10 hover:bg-white/20 text-white border-white/20">
+                <Link href="#services">Explore Services</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -88,18 +80,6 @@ export function ImageCarousel({
     }, 500); // Match this with the transition duration in CSS
   }, [images.length, isTransitioning]);
 
-  // const prevSlide = useCallback(() => {
-  //   if (isTransitioning) return;
-
-  //   setIsTransitioning(true);
-  //   setCurrentIndex(
-  //     (prevIndex) => (prevIndex - 1 + images.length) % images.length
-  //   );
-
-  //   setTimeout(() => {
-  //     setIsTransitioning(false);
-  //   }, 500); // Match this with the transition duration in CSS
-  // }, [images.length, isTransitioning]);
 
   const goToSlide = (index: number) => {
     if (isTransitioning) return;
@@ -120,9 +100,9 @@ export function ImageCarousel({
   }, [interval, nextSlide]);
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
-      {/* Semi-transparent overlay */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/20 via-black/30 to-black/50" />
+    <div className={`relative overflow-hidden rounded-3xl ${className}`}>
+      {/* Semi-transparent overlay with stronger gradient */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
 
       {/* Images */}
       <div className="relative h-full w-full">
@@ -136,7 +116,7 @@ export function ImageCarousel({
             <img
               src={image || "/placeholder.svg"}
               alt={`Slide ${index + 1}`}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover rounded-3xl"
             />
           </div>
         ))}
