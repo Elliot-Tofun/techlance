@@ -3,13 +3,16 @@ import { useState } from "react"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Check, CalendarPlus, Mail, MapPin, Phone, Clock, Server, Database, Headset, Truck, Code } from "lucide-react"
+import { Check, CalendarPlus, Send, Mail, MapPin, Phone, Clock, Server, Database, Headset, Truck, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Scheduler } from "@/components/Scheduler"
+import { motion } from "framer-motion";
+import Link from "next/link";
+
 
 // Form schema for contact form
 const formSchema = z.object({
@@ -47,61 +50,122 @@ export default function ContactPageClient() {
   async function onSubmit(values: FormValues) {
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    // Prepare payload for Web3Forms
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    const data = {
+      ...values,
+      access_key: accessKey,
+      subject: "New Contact Form Submission",
+    };
 
-    console.log("Form submitted:", values)
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      form.reset()
-      setIsSubmitted(false)
-    }, 3000)
+      if (result.success) {
+        console.log("Submission successful", result);
+        setIsSubmitted(true);
+      } else {
+        console.error("Submission error", result);
+        // You might want to show an error message to the user here
+      }
+    } catch (error) {
+      console.error("Submission error", error);
+      // You might want to show an error message to the user here
+    }
+
+    setIsSubmitting(false);
+
+    // Reset form after 3 seconds on successful submission
+    if (isSubmitted) {
+      setTimeout(() => {
+        form.reset();
+        setIsSubmitted(false);
+      }, 3000);
+    }
   }
 
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero Section */}
-      {/* <div className="bg-primary text-white py-16 md:py-24">
-        <div className="container px-4 mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6">
-              IT Solutions for Your Business
-            </h1>
-            <p className="text-xl mb-8">
-              Comprehensive IT services to help your business grow, scale, and succeed in the digital world.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
-              <div className="bg-primary-foreground/10 p-4 rounded-lg">
-                <Code className="h-8 w-8 mx-auto mb-2" />
-                <div className="font-medium">IT Development</div>
-              </div>
-              <div className="bg-primary-foreground/10 p-4 rounded-lg">
-                <Server className="h-8 w-8 mx-auto mb-2" />
-                <div className="font-medium">Infrastructure</div>
-              </div>
-              <div className="bg-primary-foreground/10 p-4 rounded-lg">
-                <Database className="h-8 w-8 mx-auto mb-2" />
-                <div className="font-medium">Database</div>
-              </div>
-              <div className="bg-primary-foreground/10 p-4 rounded-lg">
-                <Headset className="h-8 w-8 mx-auto mb-2" />
-                <div className="font-medium">Support</div>
-              </div>
-              <div className="bg-primary-foreground/10 p-4 rounded-lg">
-                <Truck className="h-8 w-8 mx-auto mb-2" />
-                <div className="font-medium">Dispatch</div>
-              </div>
+      <div className="relative mx-auto my-16 mt-16 flex max-w-7xl flex-col items-center justify-center bg-white">
+      <div className="absolute inset-y-0 left-0 h-full w-px ">
+        <div className="absolute top-0 h-40 w-px " />
+      </div>
+      <div className="absolute inset-y-0 right-0 h-full w-px ">
+        <div className="absolute h-40 w-px " />
+      </div>
+      <div className="absolute inset-x-0 bottom-0 h-px w-full ">
+        <div className="absolute mx-auto h-px w-40 " />
+      </div>
+      <div className="px-4 py-10 md:py-20">
+        <h1 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-slate-700 md:text-4xl lg:text-7xl dark:text-slate-300">
+          {["Get in Touch With Us", "Let's Talk Success"].map((line, lineIndex) => (
+            <div key={`line-${lineIndex}`} className="mb-2">
+              {line.split(" ").map((word, wordIndex) => (
+                <motion.span
+                  key={`${lineIndex}-${wordIndex}`}
+                  initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+                  animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: (lineIndex * line.split(" ").length + wordIndex) * 0.1,
+                    ease: "easeInOut",
+                  }}
+                  className="mr-2 inline-block"
+                >
+                  {word}
+                </motion.span>
+              ))}
             </div>
-          </div>
-        </div>
-      </div> */}
+          ))}
+        </h1>
+        <motion.p
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          transition={{
+            duration: 0.3,
+            delay: 0.8,
+          }}
+          className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-neutral-600 dark:text-neutral-400"
+        >
+          Have questions, need a quote, or ready to start your next project? Our team is just a message away. Whether you're looking for expert advice or specific service details, we're here to listen and provide the solutions you need.
+        </motion.p>
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          transition={{
+            duration: 0.3,
+            delay: 1,
+          }}
+          className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
+        >
+          <button onClick={() => setSchedulerOpen(true)} className="w-60 transform rounded-lg bg-black px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+            Schedule Meeting
+          </button>
+          <Link href="/contact#sendMessage" className="w-60 transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-900 text-center">
+            Send Message
+          </Link>
+        </motion.div>
+        
+      </div>
+    </div>
 
       {/* Contact Section */}
       <div className="container px-4 py-12 md:py-24 mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Contact Us</h2>
+        {/* <h2 className="text-3xl font-bold text-center mb-12">Contact Us</h2> */}
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Contact Information Cards */}
           {/* Company Information Card */}
@@ -162,7 +226,7 @@ export default function ContactPageClient() {
           </Card>
 
           {/* Contact Form Card */}
-          <Card className="shadow-md">
+          <Card className="shadow-md" id="sendMessage">
             <CardHeader>
               <CardTitle className="text-2xl">Send a Message</CardTitle>
               <CardDescription>Fill out the form below or schedule a meeting with our team.</CardDescription>

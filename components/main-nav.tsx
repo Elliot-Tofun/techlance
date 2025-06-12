@@ -140,6 +140,9 @@ export const MainNav = () => {
             <Link href="/about" className="font-medium hover:text-primary">
               About
             </Link>
+            <Link href="/contact" className="font-medium hover:text-primary">
+              Contact Us
+            </Link>
           </div>
         </nav>
 
@@ -151,20 +154,20 @@ export const MainNav = () => {
           {/* <ThemeToggle /> */}
         </div>
 
+        {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-4">
-          {/* <ThemeToggle /> */}
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-      </div>
-
-      <div
-        className={cn(
-          "md:hidden absolute w-full rounded-2xl mt-2 bg-background transition-all duration-300 ease-in-out",
-          isOpen ? "max-h-[500px] py-4" : "max-h-0 py-0 overflow-hidden"
-        )}
-      >
+        
+        {/* Mobile Menu Dropdown */}
+        <div
+          className={cn(
+            "lg:hidden absolute w-full rounded-2xl mt-2 bg-background transition-all duration-300 ease-in-out",
+            isOpen ? "max-h-[500px] py-4" : "max-h-0 py-0 overflow-hidden"
+          )}
+        >
         <div className="px-8 flex flex-col space-y-4">
           <Link
             href="/"
@@ -194,6 +197,13 @@ export const MainNav = () => {
           >
             About Us
           </Link>
+          <Link
+            href="/contact"
+            className="text-md font-bold text-right hover:text-primary"
+            onClick={() => setIsOpen(false)}
+          >
+            Contact Us
+          </Link>
           <Button
             onClick={() => {
               setDialogOpen(true);
@@ -203,6 +213,7 @@ export const MainNav = () => {
             Schedule a Meeting
           </Button>
         </div>
+      </div>
       </div>
 
       <Scheduler open={dialogOpen} onOpenChange={setDialogOpen} />
